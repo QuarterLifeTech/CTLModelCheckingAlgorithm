@@ -1,4 +1,7 @@
 (* Justin lachapelle - University of Ottawa *)
+(* SAT implementation based on the pseudocode provided on page 227 in the book 
+   Logic in Computer Science: Modelling and Reasoning About Systems 
+   by Michael Huth and Mark Ryan, second edition *)
 
 (* Types *)
 type state = State of int
@@ -43,8 +46,7 @@ let canStateXTransitionIntoSubsetY (subset_Y: state list) (s: state * transition
     | (_,transitions) -> List.exists (isTransitionInSubset subset_Y) transitions
 
 (* Algorithm Functions *)
-
-(* PreExistential Function : 
+(* PreExistential Function:
     Takes a subeset Y of states and returns the set of states which CAN make a transition into Y *)
 let preExistential (subset_Y: state list) (model: (state * transitions) list) : state list =
     match List.split (List.filter (canStateXTransitionIntoSubsetY subset_Y) model) with
