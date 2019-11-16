@@ -125,8 +125,8 @@ let labels2 = [(State(0),["n1";"n2"]);(State(1),["t1";"n2"]);(State(2),["c1";"n2
 let eu1 = EU(Neg(Prop("c2")),Prop("c1")) 
 
 (* Test CTL formulas for models and labels in the book  *)
-let af1 : form = AF(And(Prop("t1"),Prop("t2"))) (* Not sure if it works? *)
-let af2 : form = AF(Prop("t1")) (* Not sure if it works? *)
+let af1 : form = AF(And(Prop("t1"),Prop("t2")))
+let af2 : form = AF(Prop("t1"))
 let truth1 : form = True (* answer : all states 0-7,9 *)
 let false1 : form = False (* answer : empty set *)
 let prop3 : form = Prop("c1") (* answer : 2 & 4 *)
