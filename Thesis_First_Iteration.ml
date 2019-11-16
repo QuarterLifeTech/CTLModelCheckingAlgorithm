@@ -118,11 +118,11 @@ let rec sat (model: (state * transitions) list) (labels: (state * prop list) lis
     | AF(f1) -> satAF model labels f1
     | AG(f1) -> sat model labels (Neg(EF(Neg(f1))))
 
+
 (* Test data for example from the book *)
 let model2 = [(State(0),[State(1);State(5)]); (State(1),[State(2);State(3)]); (State(2),[State(0);State(4)]); (State(3),[State(4)]); (State(4),[State(5)]); (State(5),[State(9);State(6)]); (State(6),[State(0);State(7)]); (State(7),[State(1)]);(State(9),[State(7)])]
 let labels2 = [(State(0),["n1";"n2"]);(State(1),["t1";"n2"]);(State(2),["c1";"n2"]);(State(3),["t1";"t2"]);(State(4),["c1";"t2"]);(State(5),["n1";"t2"]);(State(6),["n1";"c2"]);(State(7),["t1";"c2"]);(State(9),["t1";"t2"])]
 let eu1 = EU(Neg(Prop("c2")),Prop("c1")) 
-
 
 (* Test CTL formulas for models and labels in the book  *)
 let af1 : form = AF(And(Prop("t1"),Prop("t2"))) (* Not sure if it works? *)
