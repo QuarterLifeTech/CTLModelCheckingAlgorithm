@@ -57,13 +57,7 @@ let preUniversal (subset_Y: state list) (model: (state * transitions) list) : st
     let preExistentialResult = preExistential setSMinusY model in
     List.filter (doesNotHaveStateInList (preExistentialResult)) setS
 
-(* Assuming the correct input for every parameter 
-Parameters:
-    model : each state is stored as a tuple consisting of it's state number (int) and the 
-            number of the states each state can transition into (int list)
-    labels : 
-    ctl_form :
-*)
+(* Implementation of CTL Model Checking Alogirthm *)
 let rec sat (model: (state * transitions) list) (labels: (state * prop list) list) (ctl_form: form) : state list = 
     (* SubRoutines EX, AF & EU *)
     let satEX (model: (state * transitions) list) (labels: (state * prop list) list) (ctl_form: form) : state list =
