@@ -93,6 +93,7 @@ let rec sat (model: (state * transitions) list) (labels: (state * prop list) lis
         in
         recSatEU model labels ctl_form1 ctl_form2 setS var_y var_w
     in
+    (* Implementation of SAT *)
     match ctl_form with
     (* return all states *)
     | True -> (match List.split model with
